@@ -1,0 +1,61 @@
+T
+
+his is our first lab of Docker.
+We will learn how to run basic commands of Docker.
+
+1. to check the status of the engie wheather it is start or not use
+   --> service docker status
+
+2. to start the service use command  
+  --> service docker start
+
+3. to check if there is any images present or not use
+  --> docker images
+
+4. to check running images use
+  --> docker ps 
+  --> docker ps -a (running and stopped both)
+
+5. to create or start a image which is locally present or not use
+  --> docker run -it ubuntu /bin/bash (run=create+start, i=interactive mode, t=terminal)
+   
+   Note : always find the image at dockerhub and then use the same name in CLI. 
+   
+   docker has successfully pulled ubuntu image from docker hub and stored it locally 
+   since it is running and running images called containers so now you are in the ubuntu container.
+
+6. to exit the container simply use
+  --> exit.
+
+7. Now run again [docker images] and you will see ubuntu details.
+   If you run this image again a new container will be create
+   and the ID of both container will be different though they have same images.
+
+8. Now if you run [docker ps -a] it will show both stopped and running containers.
+
+9. To give name to any container use
+  --> docker run -it --name Ankit centos /bin/bash
+
+10. After exiting form above container if you run [docker images] you will have two images
+    ubuntu and centos but if you run [docker ps -a] it will show three containers.
+
+11. to download images from dockerhub to local machine for future use 
+  --> docker pull jenkins/jenkins
+      
+12. to start a existing container use
+  --> docker start Ankit[name of the containe]
+
+13. to go inside the container use
+  --> docker attach Ankit
+
+14. to stop a running container use
+  --> docker stop Ankit
+
+15. to delete a container you must stop it first then only it will be deleted
+  --> docker rm Ankit 
+       
+
+
+
+
+
