@@ -1,0 +1,64 @@
+
+
+This is our second lab of Docker.
+We will learn how to make a docker file and use cases.
+
+1. to check the changes that you have made in container use
+   --> docker diff Ankit[container name]
+       
+       C /root
+       A /root/.bash_history
+       C /tmp
+       A /tmp/Ankitfile
+
+       since I have made a file in /tmp directory it shows here the changes.
+
+2. you have made some changes in Ankit container and want to make a image form that conatiner use
+   --> docker commit Ankit[container name] updatedimage[image name]
+
+3. Now make a new container with the help of image that you have created
+  --> docker run -it --name aditya[new container name] updatedimage /bin/bash
+
+4. to check that it has the changes 
+  --> ls > cd > /tmp/ > ls
+      you will see Ankitfile will be present there.
+
+DOCKERFILE
+
+5. make a dockerfile 
+  --> vi dockerfile
+       
+       FROM ubuntu
+       RUN echo "Hello world !" > /tmp/testfile
+
+7. to make a image from this dockerfile use
+  --> docket build -t(tag) aman[image name] .(current directory)
+
+8. make a container from that image 
+  --> docker run -it --name amancontainer aman /bin/bash
+
+
+There are some commands that we use in Dockerfile :
+
+FROM : for base image, this command must be on the top of the dockerfile.
+
+RUN : to execute commands, it will create a layer in image.
+
+MAINTAINER : Author / Owner / Description.
+
+COPY : copy files form local machine(need to provide source)
+
+ADD : download or extract files from internet.
+
+EXPOSE : to expose ports such as port 8080 for tomcat, port 80 for nginx etc.
+
+WORKDIR : to set working directory for a container.
+
+CMD : execute command but during container creation.
+
+ENTRYPOINT : similar to CMD but it has higher priorities over CMD, first ENTRYPOINT will execute then CMD.
+
+ENV : Environment variables
+
+
+
