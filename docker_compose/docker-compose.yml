@@ -9,4 +9,4 @@ services:
     ports:
       - "8888:8888"
     environment:
-      - APP_REMOTE_SERVER=http://server-service:8080/server/
+      - APP_REMOTE_SERVER=http://mummy:8080/server/
