@@ -1,0 +1,12 @@
+version: '3.0'
+services:
+  server-service:
+    image: agileguru/graalvmcloudnativeserver:main
+    ports:
+      - "8080:8080"
+  client:
+    image: agileguru/graalvmcloudnativeclient:main
+    ports:
+      - "8888:8888"
+    environment:
+      - APP_REMOTE_SERVER=http://server-service:8080/server/
